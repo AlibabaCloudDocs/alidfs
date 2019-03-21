@@ -13,7 +13,7 @@
 
 文件存储HDFS的使用流程如下图所示：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/19062/155316968111140_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/19062/155316971711140_zh-CN.png)
 
 1.  [创建文件系统](cn.zh-CN/快速入门/创建文件系统.md#)：创建文件存储HDFS文件系统实例，配置相关参数。
 2.  [创建权限组](cn.zh-CN/快速入门/创建权限组.md#)：创建权限组，配置相关参数。
