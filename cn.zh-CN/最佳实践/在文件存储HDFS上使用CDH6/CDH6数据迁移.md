@@ -16,12 +16,12 @@ CDH（Cloudera's Distribution, including Apache Hadoop）是众多 Hadoop 发行
         -   （必须配置）配置项fs.AbstractFileSystem.dfs.impl，其值：com.alibaba.dfs.DFS
         -   （可选）配置项io.file.buffer.size，其值：4194304
         -   （可选）配置项dfs.connection.count，其值：1
-        ![配置项](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447571953790_zh-CN.png)
+        ![配置项](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601053790_zh-CN.png)
 
     4.  单击**保存更改**。
     5.  返回系统主页，找到**HDFS**，单击重新部署图标，进行重新部署。 
 
-        ![重新部署](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447571953793_zh-CN.png)
+        ![重新部署](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601153793_zh-CN.png)
 
     6.  在过期配置页面，单击**重启过时服务**。
     7.  在重启过时服务页面，单击**立即重启**。
@@ -46,7 +46,7 @@ CDH（Cloudera's Distribution, including Apache Hadoop）是众多 Hadoop 发行
 
         **说明：** 建议只保留HDFS服务正常运行，以方便进行数据迁移。但是如果要迁移的数据量大，请开启YARN服务，以便使用数据迁移工具hadoop distcp进行快速地数据迁移。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447571953849_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601153849_zh-CN.png)
 
 5.  迁移数据。 
 
@@ -73,5 +73,5 @@ CDH（Cloudera's Distribution, including Apache Hadoop）是众多 Hadoop 发行
         其中f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com为您的文件存储HDFS挂载点域名，需要根据实际情况进行修改。
 
 
-[配置CDH使用文件存储HDFS](cn.zh-CN/最佳实践/在文件存储HDFS上使用CDH6/配置CDH6使用文件存储HDFS.md#)
+[配置CDH6使用文件存储HDFS](cn.zh-CN/最佳实践/在文件存储HDFS上使用CDH6/配置CDH6使用文件存储HDFS.md#)
 
