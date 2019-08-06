@@ -16,17 +16,17 @@ CDH（Cloudera's Distribution, including Apache Hadoop）是众多 Hadoop 发行
         -   （必须配置）配置项fs.AbstractFileSystem.dfs.impl，其值：com.alibaba.dfs.DFS
         -   （可选）配置项io.file.buffer.size，其值：4194304
         -   （可选）配置项dfs.connection.count，其值：1
-        ![配置项](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601053790_zh-CN.png)
+        ![配置项](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156507443453790_zh-CN.png)
 
     4.  单击**保存更改**。
     5.  返回系统主页，找到**HDFS**，单击重新部署图标，进行重新部署。 
 
-        ![重新部署](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601153793_zh-CN.png)
+        ![重新部署](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156507443453793_zh-CN.png)
 
     6.  在过期配置页面，单击**重启过时服务**。
     7.  在重启过时服务页面，单击**立即重启**。
     8.  等待服务全部重启完成，并重新部署客户端配置后，单击**完成**。
-3.  执行以下命令将文件系统HDFS的SDK包（aliyun-sdk-dfs-1.0.2-beta.jar \)，放置到CDH HDFS服务上存储jar包的路径下。其中jar包放置目录，请根据实际值替换。 
+3.  执行以下命令将文件存储HDFS最新的SDK包（[单击此处下载](https://mvnrepository.com/artifact/com.aliyun.dfs/aliyun-sdk-dfs) \)，放置到CDH HDFS服务上存储jar包的路径下。其中jar包放置目录，请根据实际值替换。 
 
     ``` {#codeblock_c89_ljz_o8z}
     cp aliyun-sdk-dfs-1.0.2-beta.jar    /opt/cloudera/parcels/CDH-6.0.1-1.cdh6.0.1.p0.590678/lib/hadoop-hdfs/
@@ -46,7 +46,7 @@ CDH（Cloudera's Distribution, including Apache Hadoop）是众多 Hadoop 发行
 
         **说明：** 建议只保留HDFS服务正常运行，以方便进行数据迁移。但是如果要迁移的数据量大，请开启YARN服务，以便使用数据迁移工具hadoop distcp进行快速地数据迁移。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156447601153849_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095682/156507443553849_zh-CN.png)
 
 5.  迁移数据。 
 
