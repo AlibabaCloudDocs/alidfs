@@ -31,14 +31,14 @@
         -   （必须配置）配置项fs.AbstractFileSystem.dfs.impl，其值：com.alibaba.dfs.DFS
         -   （可选）配置项io.file.buffer.size，其值：4194304
         -   （可选）配置项dfs.connection.count，其值：1
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156499241054183_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156507444954183_zh-CN.png)
 
     4.  确认自定义配置成功后，单击**保存**，在确认保存对话框中，输入执行原因，单击**确定**。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156499241054186_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156507444954186_zh-CN.png)
 
     5.  单击**部署客户端配置**，在确认保存对话框中，输入执行原因，单击**确定**。
-4.  执行以下命令，将文件存储HDFS的SDK包（aliyun-sdk-dfs-1.0.2-beta.jar \)，放置到E-MapReduce HDFS服务存放jar包的路径下。 
+4.  执行以下命令将文件存储HDFS最新的SDK包（[单击此处下载](https://mvnrepository.com/artifact/com.aliyun.dfs/aliyun-sdk-dfs)\)，放置到E-MapReduce HDFS服务存放jar包的路径下。 
 
     ``` {#codeblock_shp_gd0_kx2}
     cp ~/aliyun-sdk-dfs-1.0.2-beta.jar    /opt/apps/ecm/service/hadoop/2.8.5-1.3.1/package/hadoop-2.8.5-1.3.1/share/hadoop/hdfs/
@@ -58,7 +58,7 @@
 
         当组件前面的图标变成红色，表示该组件服务已停止。直到Spark服务运行的组件全部停止后，再进行其他服务的组件停止操作。无需关注xxx Client组件的状态。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156499241054202_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188169/156507444954202_zh-CN.png)
 
     4.  重复上述步骤，停止剩余服务。 
 
