@@ -15,7 +15,7 @@
 
         其中f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com为您的文件存储HDFS挂载点域名，需要根据实际情况进行修改。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573153804_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248353804_zh-CN.png)
 
     4.  单击**保存更改**。
 2.  配置mapreduce.application.classpath。 
@@ -28,7 +28,7 @@
 
         **说明：** 如果添加了新路径，必选在目录后加上" /\* "或者直接添加文件系统HDFS的SDK包所在的绝对路径。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573153805_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248353805_zh-CN.png)
 
     4.  添加完成后，单击**保存更改**。
 3.  更改mapred-site.xml配置。 
@@ -42,7 +42,7 @@
 
         **说明：** 如果3.x.x-cdh6.x.x-mr-framework.tar.gz文件不存在，可能是因为此文件还没有从CDH的HDFS服务同步到文件存储HDFS。您需要将HDFS服务/user/yarn目录下的所有内容同步到文件存储HDFS上，请参考[CDH6数据迁移](cn.zh-CN/最佳实践/在文件存储HDFS上使用CDH6/CDH6数据迁移.md#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573153822_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248353822_zh-CN.png)
 
     4.  单击**保存更改**。
 4.  部署新配置并重启服务。 
@@ -81,21 +81,21 @@
     +-------+-----------------------+---------------------------------------------------------------------+--------------------------+------------+------------+
     4 rows in set (0.00 sec)
     
-    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse"  WHERE DB_ID = 1 ;
+    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse"  WHERE DB_ID = 1 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db "  WHERE DB_ID = 13 ;
-    Query OK, 1 row affected (0.00 sec)
-    Rows matched: 1  Changed: 1  Warnings: 0
-    
-    MySQL [cdh6hive]>
-    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report.db"  WHERE DB_ID = 14 ;
+    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db "  WHERE DB_ID = 13 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
     MySQL [cdh6hive]>
-    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report_old.db"  WHERE DB_ID = 15 ;
+    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report.db"  WHERE DB_ID = 14 ;
+    Query OK, 1 row affected (0.00 sec)
+    Rows matched: 1  Changed: 1  Warnings: 0
+    
+    MySQL [cdh6hive]>
+    MySQL [cdh6hive]> UPDATE DBS SET DB_LOCATION_URI = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report_old.db"  WHERE DB_ID = 15 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
@@ -117,39 +117,39 @@
     +-------+-------+---------------------------------------------------------------+---------------+---------------------------+---------------------------------------------------------------------------------------------------------------+-------------+----------------------------------------------------------------+----------+
     9 rows in set (0.00 sec)
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned" WHERE  SD_ID = 25 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned" WHERE  SD_ID = 25 ;
     Query OK, 1 row affected (0.01 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=15" WHERE  SD_ID = 44 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=15" WHERE  SD_ID = 44 ;
     Query OK, 1 row affected (0.01 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=14" WHERE  SD_ID = 45 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=14" WHERE  SD_ID = 45 ;
     Query OK, 1 row affected (0.01 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=13" WHERE  SD_ID = 46 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=13" WHERE  SD_ID = 46 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=12" WHERE  SD_ID = 47 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=12" WHERE  SD_ID = 47 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=11" WHERE  SD_ID = 48 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=11" WHERE  SD_ID = 48 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=10" WHERE  SD_ID = 49 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=10" WHERE  SD_ID = 49 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=9" WHERE  SD_ID = 53 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=9" WHERE  SD_ID = 53 ;
     Query OK, 1 row affected (0.01 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
-    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=8" WHERE  SD_ID = 54 ;
+    MySQL [cdh6hive]> UPDATE SDS SET LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=8" WHERE  SD_ID = 54 ;
     Query OK, 1 row affected (0.00 sec)
     Rows matched: 1  Changed: 1  Warnings: 0
     
@@ -157,15 +157,15 @@
     +-------+-------+---------------------------------------------------------------+---------------+---------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------------+----------------------------------------------------------------+----------+
     | SD_ID | CD_ID | INPUT_FORMAT                                                  | IS_COMPRESSED | IS_STOREDASSUBDIRECTORIES | LOCATION                                                                                                                                           | NUM_BUCKETS | OUTPUT_FORMAT                                                  | SERDE_ID |
     +-------+-------+---------------------------------------------------------------+---------------+---------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------------+----------------------------------------------------------------+----------+
-    |    25 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned                          |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       25 |
-    |    44 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=15 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       44 |
-    |    45 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=14 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       45 |
-    |    46 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=13 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       46 |
-    |    47 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=12 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       47 |
-    |    48 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=11 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       48 |
-    |    49 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=10 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       49 |
-    |    53 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=9  |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       53 |
-    |    54 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=8  |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       54 |
+    |    25 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned                          |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       25 |
+    |    44 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=15 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       44 |
+    |    45 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=14 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       45 |
+    |    46 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=13 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       46 |
+    |    47 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=12 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       47 |
+    |    48 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=11 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       48 |
+    |    49 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=10 |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       49 |
+    |    53 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=9  |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       53 |
+    |    54 |    14 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat |               |                           | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned/year=2019/month=7/day=8  |          -1 | org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat |       54 |
     +-------+-------+---------------------------------------------------------------+---------------+---------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+-------------+----------------------------------------------------------------+----------+
     9 rows in set (0.00 sec)
     ```
@@ -205,12 +205,12 @@ cp aliyun-sdk-dfs-1.0.2-beta.jar /opt/cloudera/parcels/CDH-6.0.1-1.cdh6.0.1.p0.5
     2.  搜索hbase-site.xml，并选择**HBase** \> **HBase（服务范围）**。
     3.  在hbase-site.xml 的 HBase 服务高级配置代码段（安全阀）和hbase-site.xml 的 HBase 客户端高级配置代码段（安全阀）中，都要添加如下配置项。 
 
-        -   配置项hbase.tmp.dir，其值：dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/hbase
+        -   配置项hbase.root.dir，其值：dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/hbase
 
             其中f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com为您的文件存储HDFS挂载点域名，需要根据实际情况进行修改。
 
         -   配置项hbase.unsafe.stream.capability.enforce，其值：false
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573253819_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248353819_zh-CN.png)
 
 2.  部署新配置并重启服务。 
     1.  返回系统主页，找到**Hbase**，单击重新部署图标，进行重新部署。
@@ -301,7 +301,7 @@ cp aliyun-sdk-dfs-1.0.2-beta.jar /opt/cloudera/parcels/CDH-6.0.1-1.cdh6.0.1.p0.5
 
         如果回显信息类似如下图所示，表示配置成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573253833_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248453833_zh-CN.png)
 
 -   Hive的验证
     1.  执行以下命令进入hive命令界面。
@@ -346,7 +346,7 @@ cp aliyun-sdk-dfs-1.0.2-beta.jar /opt/cloudera/parcels/CDH-6.0.1-1.cdh6.0.1.p0.5
         CreateTime:             Wed Jul 17 15:44:29 CST 2019
         LastAccessTime:         UNKNOWN
         Retention:              0
-        Location:               dfs://f-b0953c8acbc51.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/testtable
+        Location:               dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/testtable
         .
         .
         .
@@ -395,7 +395,7 @@ cp aliyun-sdk-dfs-1.0.2-beta.jar /opt/cloudera/parcels/CDH-6.0.1-1.cdh6.0.1.p0.5
         hadoop fs -ls /hbase/data/default
         ```
 
-        ![验证hbase](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156447573253836_zh-CN.png)
+        ![验证hbase](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1095809/156767248453836_zh-CN.png)
 
 
 ## 常见问题 {#section_0fd_m8o_78r .section}
