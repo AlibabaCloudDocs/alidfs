@@ -13,7 +13,7 @@
     2.  在服务配置中，单击**core-site**。
     3.  找到配置项fs.defaultFS，将其值替换为您的文件存储HDFS挂载点域名（dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290）。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252554310_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748654310_zh-CN.png)
 
     4.  单击**保存**，在确认保存对话框中，输入执行原因，单击**确定**。
     5.  单击**部署客户端配置**，在确认保存对话框中，输入执行原因，单击**确定**。
@@ -34,7 +34,7 @@
     2.  在服务配置中，单击**hive-site**。
     3.  找到配置项hive.metastore.warehouse.dir，删除其对应值中的E-MapReduce HDFS文件系统域名，只保留/user/hive/warehouse。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252554308_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748754308_zh-CN.png)
 
     4.  单击**保存**，在确认保存对话框中，输入执行原因，单击**确定**。
     5.  单击**部署客户端配置**，在确认保存对话框中，输入执行原因，单击**确定**。
@@ -56,7 +56,7 @@
         1 row in set (0.00 sec)
         
         MariaDB [hivemeta]> UPDATE CTLGS
-            -> SET     LOCATION_URI   = 'dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse'
+            -> SET     LOCATION_URI   = 'dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse'
             -> WHERE     CTLG_ID = 1;
         Query OK, 0 rows affected (0.00 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
@@ -65,7 +65,7 @@
         +---------+------+---------------------------+-----------------------------------------------------------------------------+
         | CTLG_ID | NAME | DESC                      | LOCATION_URI                                                                |
         +---------+------+---------------------------+-----------------------------------------------------------------------------+
-        |       1 | hive | Default catalog, for Hive | dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse |
+        |       1 | hive | Default catalog, for Hive | dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse |
         +---------+------+---------------------------+-----------------------------------------------------------------------------+
         1 row in set (0.00 sec)
         
@@ -83,25 +83,25 @@
         4 rows in set (0.00 sec)
         
         MariaDB [hivemeta]>UPDATE DBS 
-            -> SET    DB_LOCATION_URI = 'dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse'
+            -> SET    DB_LOCATION_URI = 'dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse'
             -> WHERE  DB_ID = 1;
         Query OK, 0 rows affected (0.00 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
         
         MariaDB [hivemeta]>UPDATE DBS 
-            -> SET    DB_LOCATION_URI = 'dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db'
+            -> SET    DB_LOCATION_URI = 'dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db'
             -> WHERE  DB_ID = 1;
         Query OK, 0 rows affected (0.00 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
         
         MariaDB [hivemeta]>UPDATE DBS 
-            -> SET    DB_LOCATION_URI = 'dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report.db'
+            -> SET    DB_LOCATION_URI = 'dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report.db'
             -> WHERE  DB_ID = 1;
         Query OK, 0 rows affected (0.00 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
         
         MariaDB [hivemeta]>UPDATE DBS 
-            -> SET    DB_LOCATION_URI = 'dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report_old.db'
+            -> SET    DB_LOCATION_URI = 'dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs_report_old.db'
             -> WHERE  DB_ID = 1;
         Query OK, 0 rows affected (0.00 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
@@ -123,7 +123,7 @@
         +-------+-------+---------------------------------------------------------------+---------------+---------------------------+------------------------------------------------------------------------------------------------------------------------
         536 rows in set (0.00 sec)
         
-        MariaDB [hivemeta]> UPDATE SDS   SET  LOCATION = "dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned"  WHERE SD_ID = 1;
+        MariaDB [hivemeta]> UPDATE SDS   SET  LOCATION = "dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/analysis_logs.db/original_log_bj_partitioned"  WHERE SD_ID = 1;
         Query OK, 0 rows affected (0.01 sec)
         Rows matched: 1  Changed: 0  Warnings: 0
         ......
@@ -144,7 +144,7 @@
     2.  在服务配置中，单击**spark-defaults**。
     3.  找到配置项spark\_eventlog\_dir，将其对应的值替换为您文件存储HDFS挂载点域名。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252554314_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748754314_zh-CN.png)
 
     4.  单击**保存**，在确认保存对话框中，输入执行原因，单击**确定**。
     5.  单击**部署客户端配置**，在确认保存对话框中，输入执行原因，单击**确定**。
@@ -175,7 +175,7 @@
     2.  在服务配置中，单击**Hbase-site**。
     3.  找到配置项hbase.rootdir，删除其对应值中的E-MapReduce HDFS文件系统域名，只保留/hbase。 
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252554318_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748754318_zh-CN.png)
 
     4.  单击**保存**，在确认保存对话框中，输入执行原因，单击**确定**。
     5.  单击**部署客户端配置**，在确认保存对话框中，输入执行原因，单击**确定**。
@@ -239,7 +239,7 @@
 
         如果回显信息类似如下图所示，表示配置成功。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252654282_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748754282_zh-CN.png)
 
 -   Hive的验证
     1.  执行以下命令进入Hive命令界面。
@@ -280,7 +280,7 @@
         CreateTime:             Fri Jul 26 11:23:12 CST 2019
         LastAccessTime:         UNKNOWN
         Retention:              0
-        Location:               dfs://f-fad6b94cqnv2.cn-shanghai.dfs.aliyuncs.com:10290/user/hive/warehouse/testtable
+        Location:               dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/user/hive/warehouse/testtable
         Table Type:             MANAGED_TABLE
         Table Parameters:
                 COLUMN_STATS_ACCURATE   {\"BASIC_STATS\":\"true\",\"COLUMN_STATS\":{\"id\":\"true\",\"name\":\"true\"}}
@@ -345,7 +345,7 @@
         hadoop fs -ls /hbase/data/default
         ```
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156499252654285_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1188468/156767748754285_zh-CN.png)
 
 
 [卸载并释放E-MapReduce HDFS使用的云盘](cn.zh-CN/最佳实践/在文件存储HDFS上使用E-MapReduce/卸载并释放E-MapReduce HDFS使用的云盘.md#)
