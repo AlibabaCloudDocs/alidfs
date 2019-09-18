@@ -7,24 +7,24 @@
 ## 准备工作 {#section_ouf_urd_km4 .section}
 
 1.  挂载文件系统，详情请参见[../DNalidfs1853915/ZH-CN\_TP\_19052\_V6.dita\#task\_vmg\_jtk\_z2b](../DNalidfs1853915/ZH-CN_TP_19052_V6.dita#task_vmg_jtk_z2b)。
-2.  验证文件系统和计算节点之间的连通性。
-    1.  执行以下命令，在文件存储HDFS上创建目录（如：/dfs\_links）。
+2.  验证文件系统和计算节点之间的连通性。 
+    1.  执行以下命令，在文件存储HDFS上创建目录（如：/dfs\_links）。 
 
-        ``` {#codeblock_ayz_mt9_yvv}
+        ``` {#codeblock_rfw_qg1_sqe}
         hadoop fs -mkdir /dfs_links
         ```
 
-    2.  执行以下命令，验证连通性。
+    2.  执行以下命令，验证连通性。 
 
-        如果命令正常执行无输出结果，则表示连通成功。如果连通失败，请参见[创建文件系统实例后，为什么无法访问文件存储HDFS？](../../../../cn.zh-CN/常见问题/一般性问题/创建文件系统实例后，为什么无法访问文件存储HDFS？.md#)进行排查。
-
-        ``` {#codeblock_dna_wto_7b3}
+        ``` {#codeblock_2rs_omh_5su}
         hadoop fs -ls dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/dfs_links
         ```
 
         其中f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com为文件存储HDFS挂载点域名，请根据实际情况进行修改。
 
-    3.  准备迁移工具。
+        如果命令正常执行无输出结果，则表示连通成功。如果连通失败，请参见[创建文件系统实例后，为什么无法访问文件存储HDFS？](../../../../cn.zh-CN/常见问题/一般性问题/创建文件系统实例后，为什么无法访问文件存储HDFS？.md#)进行排查。
+
+    3.  准备迁移工具。 
         1.  单击[emr-tools](https://yq.aliyun.com/attachment/download/?spm=5176.100239.blogcont78093.18.BfNz7d&id=1956)下载迁移工具安装包。
         2.  将迁移工具安装包上传计算节点的本地目录。
 
@@ -32,16 +32,16 @@
 
         3.  执行以下命令，解压安装包。
 
-            ``` {#codeblock_yvp_bi1_uky}
+            ``` {#codeblock_sar_s2v_sav}
             tar jxf emr-tools.tar.bz2
             ```
 
 
 ## 将文件存储HDFS数据迁移到对象存储OSS {#section_8wy_88g_qex .section}
 
-1.  进入emr-tools工具安装包解压后所在的目录，使用`hdfs2oss4emr.sh`脚本将文件存储HDFS上的数据迁移到对象存储OSS上。具体命令如下所示：
+1.  进入emr-tools工具安装包解压后所在的目录，使用`hdfs2oss4emr.sh`脚本将文件存储HDFS上的数据迁移到对象存储OSS上，具体命令如下所示。 
 
-    ``` {#codeblock_kcs_zj9_s5p}
+    ``` {#codeblock_miz_xjl_2rs}
     cd emr-tools
     ./hdfs2oss4emr.sh \
     dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/HDFS2OSS/data/data_1000g \
@@ -58,11 +58,11 @@
 
     执行以上命令后，系统将启动一个Hadoop MapReduce任务（DistCp）。
 
-2.  任务执行完成后，查看迁移结果。
+2.  任务执行完成后，查看迁移结果。 
 
     如果回显包含如下类似信息，说明迁移成功。
 
-    ``` {#codeblock_764_lnv_rsq}
+    ``` {#codeblock_f5a_zht_8uy}
     19/03/27 08:48:58 INFO mapreduce.Job: Job job_1553599949635_0014 completed successfully
     19/03/27 08:48:59 INFO mapreduce.Job: Counters: 38
             File System Counters
@@ -115,16 +115,16 @@
 
     迁移完成后，您可以通过osscmd工具，执行以下命令查看对象存储OSS上的数据情况。
 
-    ``` {#codeblock_e8v_z8x_lz7}
+    ``` {#codeblock_d9j_me7_7ar}
     osscmd ls oss://bucket-name/HDFS2OSS/data/data_1000g
     ```
 
 
 ## 将对象存储OSS数据迁移到文件存储HDFS {#section_18m_dfi_q08 .section}
 
-1.  进入emr-tools工具安装包解压后所在的目录，使用`hdfs2oss4emr.sh`脚本将对象存储OSS上的数据迁移到文件存储HDFS上。具体命令如下所示：
+1.  进入emr-tools工具安装包解压后所在的目录，使用`hdfs2oss4emr.sh`脚本将对象存储OSS上的数据迁移到文件存储HDFS上，具体命令如下所示。 
 
-    ``` {#codeblock_l5h_bhm_ugh}
+    ``` {#codeblock_usr_k9x_rmr}
     cd emr-tools
     ./hdfs2oss4emr.sh  \
     oss://accessKeyId:accessKeySecret@bucket-name.oss-cn-hangzhou.aliyuncs.com/OSS2HDFS/oss/1000g  \
@@ -141,11 +141,11 @@
 
     执行以上命令后，系统将启动一个Hadoop MapReduce任务（DistCp）。
 
-2.  任务执行完成后，查看迁移结果。
+2.  任务执行完成后，查看迁移结果。 
 
     如果回显包含如下类似信息，说明迁移成功。
 
-    ``` {#codeblock_0hd_d3s_ile}
+    ``` {#codeblock_09c_gbk_r91}
     19/03/23 21:59:23 INFO mapreduce.Job: Counters: 38
             File System Counters
                     DFS: Number of bytes read=2335687
@@ -196,7 +196,7 @@
 
     迁移完成后，您可以执行以下命令查看文件存储HDFS上的数据情况。
 
-    ``` {#codeblock_swq_ias_kkx}
+    ``` {#codeblock_146_va9_5qp}
     hadoop fs -ls   dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/OSS2HDFS/data/data_1000g
     ```
 
