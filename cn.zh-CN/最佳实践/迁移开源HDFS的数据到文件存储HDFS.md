@@ -11,29 +11,29 @@
 
 ## 准备工作 {#section_a0f_rz3_msl .section}
 
-1.  在阿里云ECS创建Hadoop集群。
+1.  在阿里云ECS创建Hadoop集群。 
 
     如果您目前的Hadoop集群是搭建在阿里云VPC网络上的阿里云ECS集群，则无需在阿里云ECS上创建新的Hadoop集群。
 
 2.  创建和挂载文件系统至阿里云ECS上的Hadoop集群，并将文件存储HDFS设置为fs.defaultFS，详情请参见[文件存储HDFS快速入门](文件存储HDFS快速入门../DNalidfs1853915/ZH-CN_TP_19062_V3.dita#concept_idt_vvl_z2b)。
-3.  验证文件系统和计算节点之间的连通性。
-    1.  执行以下命令，在文件存储HDFS上创建目录（如：/dfs\_links）。
+3.  验证文件系统和计算节点之间的连通性。 
+    1.  执行以下命令，在文件存储HDFS上创建目录（如：/dfs\_links）。 
 
-        ``` {#codeblock_3u5_nsi_k5u}
+        ``` {#codeblock_wk9_8b9_ffz}
         hadoop fs -mkdir /dfs_links
         ```
 
-    2.  执行以下命令，验证连通性。
+    2.  执行以下命令，验证连通性。 
 
-        如果命令正常执行无输出结果，则表示连通成功。如果连通失败，请参见[创建文件系统实例后，为什么无法访问文件存储HDFS？](../../../../cn.zh-CN/常见问题/一般性问题/创建文件系统实例后，为什么无法访问文件存储HDFS？.md#)进行排查。
-
-        ``` {#codeblock_wjp_4x8_d0e}
+        ``` {#codeblock_aec_k20_g71}
         hadoop fs -ls dfs://f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com:10290/dfs_links
         ```
 
         其中f-xxxxxxxxxxxxxxx.cn-xxxxxxx.dfs.aliyuncs.com为文件存储HDFS挂载点域名，请根据您的实际情况进行修改。
 
-4.  准备迁移工具。
+        如果命令正常执行无输出结果，则表示连通成功。如果连通失败，请参见[创建文件系统实例后，为什么无法访问文件存储HDFS？](../../../../cn.zh-CN/常见问题/一般性问题/创建文件系统实例后，为什么无法访问文件存储HDFS？.md#)进行排查。
+
+4.  准备迁移工具。 
 
     您可以通过Hadoop社区标准的Distcp工具实现全量或增量的HDFS数据迁移，详细的Distcp工具使用说明请参见[Hadoop Distcp 工具官方说明文档](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
 
@@ -46,7 +46,7 @@
 
 ## 非阿里云自建Hadoop集群数据迁移 {#section_okz_yn0_m64 .section}
 
-非阿里云自建Hadoop集群数据迁移到文件存储HDFS包括以下两种情况：
+非阿里云自建Hadoop集群数据迁移到文件存储HDFS包括以下两种情况。
 
 -   非阿里云自建Hadoop集群与文件存储HDFS可以实现网络互通时， 请按照以下方法进行数据迁移。
     1.  使用阿里云高速通道产品建立原集群和文件存储HDFS所在VPC网络的连通，详情请参见[连接本地IDC](https://help.aliyun.com/document_detail/99972.html?spm=a2c4g.11186623.6.578.3bf960caIt4MDV)。
